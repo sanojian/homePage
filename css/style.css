@@ -1,0 +1,22 @@
+ 
+ body {
+	font-family: 'Press Start 2P';
+	text-align: center;
+ }
+ 
+ img.gameScreenShot {
+	width: 240px;
+	float: left;
+ }
+ 
+ td.title {
+	font-size: 1.2em;
+ }
+ 
+ td.summary {
+	font-size: 1.0em;
+ } 
+ 
+ td.description {
+	font-size: 0.9em;
+ }

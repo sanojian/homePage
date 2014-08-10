@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Sanojian</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
+        <link href='./css/style.css' rel='stylesheet' type='text/css' />
+	
+		<script>
+
+
+var g_games = [
+	{
+		title: 'Two Friends, One Dungeon',
+		type: 'good',
+		screenshot: './images/2f1d.png',
+		link: 'http://sanojian.github.io/oryx_rogue/rogue.html',
+		summary: 'Two-player dungeon crawler.',
+		description: 'Written for the Trials of Oryx contest.  It won 3rd prize!  Can be played by one or two players at the same keyboard.'
+	},
+	{
+		title: 'Le Artilleur',
+		type: 'good',
+		screenshot: './images/artilleur_mini.png',
+		link: 'http://sanojian.github.io/ld28/cannon.html',
+		summary: 'Keep using your last cannonball to shoot down the invading airships.',
+		description: 'Written for Ludum Dare 28.  The theme was "You only have one".  You get one cannonball that you can re-use or pass to your friendly airships.'
+	},
+	{
+		title: 'Hankerin Rocket Jocks',
+		type: 'good',
+		screenshot: './images/rocketjocks.jpg',
+		link: 'http://sanojian.github.io/ld27/hankerin.html',
+		summary: 'Feed the hungry astronauts.',
+		description: 'Written for Ludum Dare 27.  The theme was "10 seconds".  Physics game where you try and stack food that the astronauts request before the rocket launches.'
+	},
+	{
+		title: 'Planetary',
+		type: 'good',
+		screenshot: './images/planetary.png',
+		link: 'http://www.kongregate.com/games/sanojian/planetary',
+		summary: '4X reatime space empire game.',
+		description: ''
+	},
+	{
+		title: 'Mountain King',
+		type: 'good',
+		screenshot: './images/mountainking.jpg',
+		link: 'http://sanojian.github.io/html5-rts/client/client.html',
+		summary: 'Online multiplayer strategy king of the hill.',
+		description: ''
+	},
+	{
+		title: 'Shoebox World',
+		type: 'bad',
+		screenshot: './images/shoebox2.png',
+		link: 'http://desertislandgame.appspot.com/shoebox/game.html',
+		summary: 'Keep your pet critter alive and get all of the achievements.',
+		description: ''
+	},
+	{
+		title: 'Lonely Island',
+		type: 'bad',
+		screenshot: './images/lonelyisland.jpg',
+		link: 'http://desertislandgame.appspot.com',
+		summary: 'Island survival game.  Can you escape the island?',
+		description: ''
+	}
+];
+		
+function showGames(type) {
+	$('#gameList').empty();
+
+	for (var i=0;i<g_games.length;i++) {
+		if (g_games[i].type == type) {
+			$('#gameList').append(
+				'<div class="col-sm-6 col-md-4">' +
+					'<div class="thumbnail">' +
+						'<img src="' + g_games[i].screenshot + '" alt="...">' +
+						'<div class="caption">' +
+							'<h3>' + g_games[i].title + '</h3>' +
+							'<p>' + g_games[i].summary + '</p>' +
+							'<p><a href="' + g_games[i].link + '" class="btn btn-primary" role="button">Play!</a></p>' +
+						'</div>' +
+					'</div>' +
+				'</div>');
+		}
+	}
+}		
+		
+window.addEventListener("load", function(event) {
+
+	showGames('good');
+
+	$('input[name="gameTypes"]').change( function() {
+		showGames($(this).val());
+	});
+});
+		
+		
+		</script>
+	</head>
+
+	<body>
+	
+		<div class="well well-lg">
+			<div class="container">
+				<h2>Sanojian Makes a Game</h2>
+				<p>(a not-so-brief history)</p>
+			</div>
+		</div>
+
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active">
+				<input type="radio" name="gameTypes" value="good" checked> Good Games
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="gameTypes" value="bad"> Other Games
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="gameTypes" value="ugly"> Unfinished
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="gameTypes" value="info"> Who am I?
+			</label>
+		</div>		
+		
+		<div id="gameList" class="container">
+		</div>
+	
+	</body>
+	
+</head>
