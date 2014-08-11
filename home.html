@@ -28,7 +28,7 @@ var g_games = [
 		type: 'good',
 		screenshot: './images/artilleur_mini.png',
 		link: 'http://sanojian.github.io/ld28/cannon.html',
-		summary: 'Keep using your last cannonball to shoot down the invading airships.',
+		summary: 'Use your last cannonball to shoot down the invading airships.',
 		description: 'Written for Ludum Dare 28.  The theme was "You only have one".  You get one cannonball that you can re-use or pass to your friendly airships.'
 	},
 	{
@@ -42,9 +42,9 @@ var g_games = [
 	{
 		title: 'Planetary',
 		type: 'good',
-		screenshot: './images/planetary.png',
+		screenshot: './images/planetary2.png',
 		link: 'http://www.kongregate.com/games/sanojian/planetary',
-		summary: '4X reatime space empire game.',
+		summary: '4X realtime space empire game.',
 		description: ''
 	},
 	{
@@ -53,6 +53,30 @@ var g_games = [
 		screenshot: './images/mountainking.jpg',
 		link: 'http://sanojian.github.io/html5-rts/client/client.html',
 		summary: 'Online multiplayer strategy king of the hill.',
+		description: ''
+	},
+	{
+		title: 'Art Critic',
+		type: 'good',
+		screenshot: './images/artcritic.png',
+		link: 'http://sanojian.github.io/ld26-art-critic/game.html',
+		summary: 'Recreate masterpieces while enduring scathing criticism.',
+		description: ''
+	},
+	{
+		title: 'Unearthly Ichor',
+		type: 'good',
+		screenshot: './images/ichor.png',
+		link: 'http://sanojian.github.io/GothicRogue/rogue.html',
+		summary: 'Gothic dungeon crawler.',
+		description: ''
+	},
+	{
+		title: 'Evil Lair Construction Set',
+		type: 'bad',
+		screenshot: './images/evillair.png',
+		link: 'http://sanojian.appspot.com/ld25/game.html',
+		summary: 'Build a dungeon and destroy all invading do-gooders.',
 		description: ''
 	},
 	{
@@ -72,17 +96,94 @@ var g_games = [
 		description: ''
 	},
 	{
+		title: 'tinyMMO',
+		type: 'bad',
+		screenshot: './images/tinymmo.png',
+		link: 'http://tinymmo.appspot.com/login.jsp',
+		summary: 'An itty-bitty fantasy MMORPG.',
+		description: ''
+	},
+	{
+		title: 'Uncivil',
+		type: 'bad',
+		screenshot: './images/uncivil.png',
+		link: 'http://uncivilgame.appspot.com/',
+		summary: 'Multiplayer strategy civil war game.',
+		description: ''
+	},
+	{
 		title: 'Lonely Island',
 		type: 'bad',
 		screenshot: './images/lonelyisland.jpg',
 		link: 'http://desertislandgame.appspot.com',
 		summary: 'Island survival game.  Can you escape the island?',
 		description: ''
+	},
+	{
+		title: 'Kobold Caverns',
+		type: 'ugly',
+		screenshot: './images/kobold.png',
+		link: 'http://sanojian.github.io/html5-caverns/EvilLair.html',
+		summary: 'Build a lair and keep your kobold colony alive.',
+		description: ''
+	},
+	{
+		title: 'Galactic Outlaw',
+		type: 'ugly',
+		screenshot: './images/outlaw.png',
+		link: 'http://sanojian.github.io/galacticOutlaw/outlaw.html',
+		summary: 'RPG and space shooter in one.',
+		description: ''
+	},
+	{
+		title: 'Spacewar Architect',
+		type: 'ugly',
+		screenshot: './images/spacewararchitect.png',
+		link: 'http://sanojian.appspot.com/spacewar/drawShip.html',
+		summary: 'Draw a spaceship and then fly it in combat.',
+		description: ''
+	},
+	{
+		title: 'deCAPSalon',
+		type: 'ugly',
+		screenshot: './images/decapsalon.png',
+		link: 'http://sanojian.appspot.com/hepTAPlon/test.html',
+		summary: 'Track and field typing game.',
+		description: ''
 	}
 ];
+
+function equalHeight(group) {    
+    tallest = 0;    
+    group.each(function() {       
+        thisHeight = $(this).height();       
+        if(thisHeight > tallest) {          
+            tallest = thisHeight;       
+        }    
+    });    
+    group.each(function() { $(this).height(tallest); });
+} 
 		
 function showGames(type) {
 	$('#gameList').empty();
+
+	if (type == 'whoami') {
+		$('#gameList').append($('#tempDescription').html());
+	}
+	else if (type == 'bad') {
+		$('#gameList').append(
+			'<div class="col-sm-12 col-md-12">' +
+				'Completed games that somehow missed' + 
+			'</div>'
+		);
+	}
+	else if (type == 'ugly') {
+		$('#gameList').append(
+			'<div class="col-sm-12 col-md-12">' +
+				'Some day I will have time to finish these' + 
+			'</div>'
+		);
+	}
 
 	for (var i=0;i<g_games.length;i++) {
 		if (g_games[i].type == type) {
@@ -91,14 +192,19 @@ function showGames(type) {
 					'<div class="thumbnail">' +
 						'<img src="' + g_games[i].screenshot + '" alt="...">' +
 						'<div class="caption">' +
-							'<h3>' + g_games[i].title + '</h3>' +
-							'<p>' + g_games[i].summary + '</p>' +
-							'<p><a href="' + g_games[i].link + '" class="btn btn-primary" role="button">Play!</a></p>' +
+							'<h3 class="title">' + g_games[i].title + '</h3>' +
+							'<p class="summary">' + g_games[i].summary + '</p>' +
+							'<p><a onclick="window.open(\'' + g_games[i].link + '\')" class="btn btn-primary" role="button">Play!</a></p>' +
 						'</div>' +
 					'</div>' +
-				'</div>');
+				'</div>'
+			);
 		}
 	}
+	
+	setTimeout(function() {
+		equalHeight($('.thumbnail'));
+	}, 50);
 }		
 		
 window.addEventListener("load", function(event) {
@@ -134,13 +240,21 @@ window.addEventListener("load", function(event) {
 				<input type="radio" name="gameTypes" value="ugly"> Unfinished
 			</label>
 			<label class="btn btn-primary">
-				<input type="radio" name="gameTypes" value="info"> Who am I?
+				<input type="radio" name="gameTypes" value="whoami"> Who am I?
 			</label>
 		</div>		
 		
-		<div id="gameList" class="container">
+		<div id="gameList" class="container-fluid">
 		</div>
 	
+		<div id="tempDescription" style="display: none">
+			<div class="jumbotron">
+				<p>I am Jonas Olmstead.  I write software for a living and in my spare time I make simple little video games.  I also try to 
+				make big, complicated games but it usually ends in tears.</p>
+				<p>Do you like any of my games?  Do you hate any of my games?  Do you think one 
+				of my games could be great if only it had one more thing?  Please feel free to mail me at "sanojo at hotmail.com"</p>
+			</div>
+		</div>
 	</body>
 	
 </head>
