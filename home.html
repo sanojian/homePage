@@ -202,9 +202,6 @@ function showGames(type) {
 		}
 	}
 	
-	setTimeout(function() {
-		equalHeight($('.thumbnail'));
-	}, 50);
 }		
 		
 window.addEventListener("load", function(event) {
@@ -214,6 +211,11 @@ window.addEventListener("load", function(event) {
 	$('input[name="gameTypes"]').change( function() {
 		showGames($(this).val());
 	});
+	
+	$('img.thumbImage').on('load', function() { 
+		equalHeight($('.thumbnail')); 
+	});
+
 });
 		
 		
