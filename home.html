@@ -2,7 +2,7 @@
 <html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Sanojian</title>
+		<title>Sanojian Games</title>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -204,7 +204,7 @@ function showGames(type) {
 
 	setTimeout(function() { 
 		equalHeight($('.thumbnail')); 
-	}, 50);
+	}, 250);
 	
 }		
 		
@@ -218,7 +218,11 @@ window.addEventListener("load", function(event) {
 	
 	$('img.thumbImage').on('load', function() { 
 		equalHeight($('.thumbnail')); 
-	});
+	}).each(function() {
+		if (this.complete) {	// fix for caching
+			$(this).trigger('load');
+		}
+	});;
 
 });
 		
