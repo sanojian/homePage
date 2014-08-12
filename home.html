@@ -161,7 +161,7 @@ var g_games = [
 	}
 ];
 
-function equalHeight(group) {    
+function equalHeight(group) {   
     tallest = 0;    
     group.each(function() {       
         thisHeight = $(this).height();       
@@ -210,18 +210,14 @@ function showGames(type) {
 		}
 	}
 
-	$('img.thumbImage').on('load', function() { 
+	$('img.thumbImage').unbind('load').on('load', function() { 
 		equalHeight($('.thumbnail')); 
 	}).each(function() {
 		if (this.complete) {	// fix for caching
 			$(this).trigger('load');
 		}
 	});
-	
-	setTimeout(function() { 
-		equalHeight($('.thumbnail')); 
-	}, 250);
-	
+		
 }		
 		
 window.addEventListener("load", function(event) {
@@ -232,6 +228,7 @@ window.addEventListener("load", function(event) {
 		showGames($(this).val());
 	});
 	
+
 });
 		
 		
