@@ -4,13 +4,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Sanojian Games</title>
 		
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+		<script type="text/javascript" src="./includes/slimbox/js/slimbox2.js"></script>
+		
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
         <link href='./css/style.css' rel='stylesheet' type='text/css' />
-	
+		<link rel="stylesheet" href="./includes/slimbox/css/slimbox2.css" type="text/css" media="screen" />
+		
 		<script>
 
 
@@ -198,7 +200,9 @@ function showGames(type) {
 			$('#gameList').append(
 				'<div class="col-sm-6 col-md-4">' +
 					'<div class="thumbnail">' +
-						'<img class="thumbImage" src="' + g_games[i].screenshot + '" alt="...">' +
+						'<a onclick="jQuery.slimbox(\'' + g_games[i].screenshot + '\', \'' + g_games[i].summary + '\')">' +
+							'<img class="thumbImage" src="' + g_games[i].screenshot + '" alt="...">' +
+						'</a>' +
 						'<div class="caption">' +
 							'<h3 class="title">' + g_games[i].title + '</h3>' +
 							'<p class="summary">' + g_games[i].summary + '</p>' +
