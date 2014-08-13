@@ -12,7 +12,14 @@
  .thumbnail2 {
 	height: 340px;
  }
- 
+
+.title {
+	height: 3ex;
+} 
+
+.summary {
+	height: 7.5ex;
+}
 
  .aboutText {
 	font-size: 1em !important;
