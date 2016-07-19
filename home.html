@@ -3,16 +3,16 @@
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Sanojian Games</title>
-		
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="./includes/slimbox/js/slimbox2.js"></script>
-		
+
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
         <link href='./css/style.css' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" href="./includes/slimbox/css/slimbox2.css" type="text/css" media="screen" />
-		
+
 		<script>
 
 
@@ -36,6 +36,15 @@ var g_games = [
 		description: ''
 	},
 	{
+		title: 'Space Amoebas',
+		type: 'good',
+		screenshot: './images/amoeba3.png',
+		thumb: './images/amoeba_thumb.png',
+		link: 'http://ancient-plains-7885.herokuapp.com/examples/space/exampleClient.html',
+		summary: 'Agar.io like p2p massively multiplayer game. LD34 48hrs',
+		description: ''
+	},
+	{
 		title: 'Teed Off',
 		type: 'good',
 		screenshot: './images/teedOff2.png',
@@ -46,11 +55,20 @@ var g_games = [
 	},
 	{
 		title: 'Mud Bowl Derby',
-		type: 'good',
+		type: 'bad',
 		screenshot: './images/derby.png',
 		thumb: './images/derby_thumb.png',
 		link: 'http://js13kgames.com/entries/mud-bowl-derby',
 		summary: 'Outlast the competition in demolition derby. js13k 2015',
+		description: ''
+	},
+	{
+		title: 'XForm Arena',
+		type: 'bad',
+		screenshot: './images/xform1.png',
+		thumb: './images/xform_thumb.png',
+		link: 'http://xformarena2.herokuapp.com',
+		summary: 'Multiplayer.  Mine gems and fight other players. LD35 48hrs',
 		description: ''
 	},
 	{
@@ -226,17 +244,17 @@ var g_games = [
 	}
 ];
 
-function equalHeight(group) {   
-    tallest = 0;    
-    group.each(function() {       
-        thisHeight = $(this).height();       
-        if(thisHeight > tallest) {          
-            tallest = thisHeight;       
-        }    
-    });    
+function equalHeight(group) {
+    tallest = 0;
+    group.each(function() {
+        thisHeight = $(this).height();
+        if(thisHeight > tallest) {
+            tallest = thisHeight;
+        }
+    });
     group.each(function() { $(this).height(tallest); });
-} 
-		
+}
+
 function showGames(type) {
 	$('#gameList').empty();
 
@@ -246,14 +264,14 @@ function showGames(type) {
 	else if (type == 'bad') {
 		$('#gameList').append(
 			'<div class="col-sm-12 col-md-12">' +
-				'Completed games that somehow missed' + 
+				'Completed games that somehow missed' +
 			'</div>'
 		);
 	}
 	else if (type == 'ugly') {
 		$('#gameList').append(
 			'<div class="col-sm-12 col-md-12">' +
-				'Some day I will have time to finish these' + 
+				'Some day I will have time to finish these' +
 			'</div>'
 		);
 	}
@@ -277,16 +295,16 @@ function showGames(type) {
 		}
 	}
 
-	/*$('img.thumbImage').unbind('load').on('load', function() { 
-		equalHeight($('.thumbnail')); 
+	/*$('img.thumbImage').unbind('load').on('load', function() {
+		equalHeight($('.thumbnail'));
 	}).each(function() {
 		if (this.complete) {	// fix for caching
 			$(this).trigger('load');
 		}
 	});*/
-		
-}		
-		
+
+}
+
 window.addEventListener("load", function(event) {
 
 	showGames('good');
@@ -294,16 +312,16 @@ window.addEventListener("load", function(event) {
 	$('input[name="gameTypes"]').change( function() {
 		showGames($(this).val());
 	});
-	
+
 
 });
-		
-		
+
+
 		</script>
 	</head>
 
 	<body>
-	
+
 		<div class="well well-lg">
 			<div class="container">
 				<h2>Sanojian Makes a Game</h2>
@@ -324,11 +342,11 @@ window.addEventListener("load", function(event) {
 			<label class="btn btn-primary">
 				<input type="radio" name="gameTypes" value="whoami"> Who am I?
 			</label>
-		</div>		
-		
+		</div>
+
 		<div id="gameList" class="container-fluid">
 		</div>
-		
+
 		<div class="container">
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
@@ -344,19 +362,19 @@ window.addEventListener("load", function(event) {
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-						
+
 		</div>
-	
+
 		<div id="tempDescription" style="display: none">
 			<div class="jumbotron">
-				<p class="aboutText">My name is Jonas Olmstead.  I write software for a living and in my spare time I make simple little video games.  I also try to 
+				<p class="aboutText">My name is Jonas Olmstead.  I write software for a living and in my spare time I make simple little video games.  I also try to
 				make big, complicated games but it usually ends in tears.</p>
 				<p class="aboutText">For the past couple of years I have tried entering game jams.  I feel the hard deadline is very helpful in actually finishing a game.
 				Therefore most of the games on my page were made in two or three days.</p>
-				<p class="aboutText">Do you like any of my games?  Do you hate any of my games?  Do you think one 
+				<p class="aboutText">Do you like any of my games?  Do you hate any of my games?  Do you think one
 				of my games could be great if only it had one more thing?  Please feel free to comment below or mail me at "sanojo at hotmail.com"</p>
 			</div>
 		</div>
 	</body>
-	
+
 </head>
