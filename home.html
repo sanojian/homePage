@@ -18,6 +18,24 @@
 
 var g_games = [
 	{
+		title: 'DEAD AGAIN',
+		type: 'good',
+		screenshot: './images/deadAgain.png',
+		thumb: './images/deadAgain_thumb.png',
+		link: 'https://sanojian.itch.io/dead-again',
+		summary: 'Zombie shooter.  js13k 2022 10th place',
+		description: 'Written for the js13k contest.  Won 10th place'
+	},
+	{
+		title: 'Super Combat Squadron',
+		type: 'good',
+		screenshot: './images/scs.gif',
+		thumb: './images/scs_thumb.png',
+		link: 'https://sanojian.itch.io/super-combat-squadron',
+		summary: 'Multiplayer RTS.',
+		description: 'Play against the AI or against your friends online'
+	},
+	{
 		title: 'Two Friends, One Dungeon',
 		type: 'good',
 		screenshot: './images/2f1d.png',
@@ -36,21 +54,30 @@ var g_games = [
 		description: ''
 	},
 	{
+		title: 'LoopyDraw',
+		type: 'good',
+		screenshot: './images/loopyDraw.png',
+		thumb: './images/loopyDraw_thumb.jpg',
+		link: 'http://loopydraw.laxviking.com/',
+		summary: 'Collaborative drawing game.  LD 47, 48 hours',
+		description: 'Everything is made out of circles.  Multiplayer drawing'
+	},
+	{
+		title: 'Orbital Rescue',
+		type: 'good',
+		screenshot: './images/orbitalRescue.gif',
+		thumb: './images/orbitalRescue_thumb.jpeg',
+		link: 'https://wild.itch.io/universe-hopper',
+		summary: 'Navigate planets with limited fuel.  LD 39, 72 hours',
+		description: 'Try and rescue your sweetheart spaceship'
+	},
+	{
 		title: 'Space Amoebas',
 		type: 'good',
 		screenshot: './images/amoeba3.png',
 		thumb: './images/amoeba_thumb.png',
 		link: 'http://ancient-plains-7885.herokuapp.com/examples/space/exampleClient.html',
 		summary: 'Agar.io like p2p massively multiplayer game. LD34 48hrs',
-		description: ''
-	},
-	{
-		title: 'Super Combat Squadron',
-		type: 'ugly',
-		screenshot: './images/scs.gif',
-		thumb: './images/scs_thumb.png',
-		link: 'https://forums.tigsource.com/index.php?topic=45853.0',
-		summary: 'Multiplayer RTS.',
 		description: ''
 	},
 	{
@@ -290,7 +317,7 @@ function showGames(type) {
 			$('#gameList').append(
 				'<div class="col-sm-6 col-md-4">' +
 					'<div class="thumbnail">' +
-						'<a onclick="jQuery.slimbox(\'' + g_games[i].screenshot + '\', \'' + g_games[i].summary + '\')">' +
+						'<a onclick="jQuery.slimbox(\'' + g_games[i].screenshot + '\', \'' + g_games[i].description + '\')">' +
 							'<img class="thumbImage" src="' + g_games[i].thumb + '" alt="...">' +
 						'</a>' +
 						'<div class="caption">' +
